@@ -1,15 +1,51 @@
-Source: template-repository
-Section: unknown
+Source: xnnpack
+Section: math
+Homepage: https://github.com/google/XNNPACK
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Standards-Version: 4.7.2
+Vcs-Git: https://salsa.debian.org/deeplearning-team/xnnpack.git
+Vcs-Browser: https://salsa.debian.org/deeplearning-team/xnnpack
+Maintainer: Debian Deep Learning Team <debian-ai@lists.debian.org>
+Uploaders: Mo Zhou <lumin@debian.org>, Shengqi Chen <harry@debian.org>
+Rules-Requires-Root: no
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               googletest,
+               libcpuinfo-dev (>= 0.0~git20231104.d6860c4~),
+               libfp16-dev,
+               libfxdiv-dev,
+               libkleidiai-dev [arm64],
+               libpsimd-dev,
+               libpthreadpool-dev (>= 0.0~git20240616.560c60d~),
+               ninja-build,
+               python3
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: libxnnpack-dev
+Section: libdevel
+Architecture: amd64 i386 x32 armhf arm64 riscv64
+Multi-Arch: same
+Depends: libxnnpack0.20241108 (= ${binary:Version}), ${misc:Depends}
+Description: High-efficiency floating-point neural network inference operators (dev)
+ XNNPACK is a highly optimized library of floating-point neural network
+ inference operators for ARM, WebAssembly, and x86 platforms. XNNPACK is not
+ intended for direct use by deep learning practitioners and researchers; instead
+ it provides low-level performance primitives for accelerating high-level
+ machine learning frameworks, such as TensorFlow Lite, TensorFlow.js, PyTorch,
+ and MediaPipe.
+ .
+ This package contains the development files.
+
+Package: libxnnpack0.20241108
+Section: libs
+Architecture: amd64 i386 x32 armhf arm64 riscv64
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: High-efficiency floating-point neural network inference operators (libs)
+ XNNPACK is a highly optimized library of floating-point neural network
+ inference operators for ARM, WebAssembly, and x86 platforms. XNNPACK is not
+ intended for direct use by deep learning practitioners and researchers; instead
+ it provides low-level performance primitives for accelerating high-level
+ machine learning frameworks, such as TensorFlow Lite, TensorFlow.js, PyTorch,
+ and MediaPipe.
+ .
+ This package contains the shared library.
