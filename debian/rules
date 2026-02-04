@@ -1,4 +1,30 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+# upstream CI has numerous warnings, do not treat as errors.
+export DEB_CFLAGS_MAINT_APPEND = -fPIC -Wno-incompatible-pointer-types
+
+include /usr/share/dpkg/buildflags.mk
+include /usr/share/dpkg/pkg-info.mk
+
+USE_KLEIDIAI=OFF
+ifeq ($(DEB_HOST_ARCH),arm64)
+USE_KLEIDIAI=ON
+endif
+
 %:
-	dh $@
+	dh $@ -Scmake+ninja
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+        -DXNNPACK_LIBRARY_TYPE=shared \
+        -DXNNPACK_USE_SYSTEM_LIBS=ON \
+        -DXNNPACK_BUILD_TESTS=OFF \
+        -DXNNPACK_BUILD_BENCHMARKS=OFF \
+	-DXNNPACK_ENABLE_KLEIDIAI=$(USE_KLEIDIAI) \
+        -DGOOGLETEST_SOURCE_DIR=/usr/src/googletest \
+        -DPTHREADPOOL_SOURCE_DIR=/usr \
+        -DCPUINFO_SOURCE_DIR=/usr
+
+override_dh_auto_test:
+	#dh_auto_test

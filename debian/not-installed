@@ -1,0 +1,16 @@
+usr/lib/*/libclog.a
+usr/include/clog.h
+usr/lib/*/libcpuinfo*
+usr/lib/*/libpthreadpool*
+usr/include/cpuinfo.h
+usr/include/fp16.h
+usr/include/fp16/__init__.py
+usr/include/fp16/avx.py
+usr/include/fp16/avx2.py
+usr/include/fp16/bitcasts.h
+usr/include/fp16/fp16.h
+usr/include/fp16/psimd.h
+usr/include/fxdiv.h
+usr/include/psimd.h
+usr/include/pthreadpool.h
+usr/include/experiments-config.h

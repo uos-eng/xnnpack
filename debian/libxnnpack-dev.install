@@ -1,0 +1,3 @@
+usr/include/xnnpack.h
+usr/lib/*/libXNNPACK.so
+usr/lib/*/libmicrokernels-prod.a

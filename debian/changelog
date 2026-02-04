@@ -1,5 +1,197 @@
-template-repository (1.0-1) unstable; urgency=medium
+xnnpack (0.0~git20241108.4ea82e5-2) unstable; urgency=medium
 
-  * Initial release
+  * Gbp-Dch: bump std-ver to 4.7.2 (no changes required).
+  * d/{control,rules}: build with kleidiai on arm64.
+  * d/control: mark libxnnpack-dev as Multi-Arch: same.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Shengqi Chen <harry@debian.org>  Sun, 13 Apr 2025 15:11:05 +0800
+
+xnnpack (0.0~git20241108.4ea82e5-1) unstable; urgency=medium
+
+  * d/control: add myself in uploaders
+  * Upload to unstable.
+
+ -- Shengqi Chen <harry@debian.org>  Mon, 17 Feb 2025 23:45:51 +0800
+
+xnnpack (0.0~git20241108.4ea82e5-1~exp2) experimental; urgency=medium
+
+  * Team upload.
+  * d/patches: backport FTBFS fix with GCC 13 on arm64 from upstream
+
+ -- Shengqi Chen <harry@debian.org>  Sun, 26 Jan 2025 00:01:33 +0800
+
+xnnpack (0.0~git20241108.4ea82e5-1~exp1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream version 0.0~git20241108.4ea82e5
+    Please use this snapshot for PyTorch/2.6+ releases.
+  * Install libmicrokernels-prod.a in libxnnpack-dev
+  * d/control: use correct std-ver 4.7.0
+  * Bump SOVERSION to libxnnpack0.20241108 to reflect API changes
+  * d/copyright: add new author names according to upstream
+
+ -- Shengqi Chen <harry@debian.org>  Fri, 24 Jan 2025 13:57:27 +0800
+
+xnnpack (0.0~git20240821.87ee0b4-3) unstable; urgency=medium
+
+  * Team upload.
+  * Mark libxnnpack0 as "Multi-Arch: same"
+
+ -- Dylan Aïssi <daissi@debian.org>  Tue, 21 Jan 2025 12:23:32 +0100
+
+xnnpack (0.0~git20240821.87ee0b4-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/rules: disable kleidiai to fix build on arm64 (see: #1081414)
+  * d/rules: add exception in CFLAGS to fix build on arm{hf,64}
+
+ -- Shengqi Chen <harry-chen@outlook.com>  Wed, 11 Sep 2024 21:45:39 +0800
+
+xnnpack (0.0~git20240821.87ee0b4-1) unstable; urgency=medium
+
+  [ Shengqi Chen ]
+  * Team upload.
+  * New upstream version 0.0~git20240821.87ee0b4
+    Please use this snapshot for PyTorch/2.4.X releases.
+  * d/patches: refresh patch and add DEP3 header
+  * d/control: 
+    + add python3 in B-D, limit architecture to supported platforms
+    + bump std-ver to 4.7.0.1 (no changes required)
+  * d/rules:
+    + fix indentation
+    + remove override_dh_dwz which is now unnecessary
+    + fix wrong hardening flags
+  * d/copyright: remove unused BSD-2-Clause paragraph
+
+  [ Aron Xu ]
+  * d/rules: disable tests for known failures
+
+ -- Shengqi Chen <harry-chen@outlook.com>  Thu, 05 Sep 2024 00:26:23 +0800
+
+xnnpack (0.0~git20240229.fcbf55a-1~exp1) experimental; urgency=medium
+
+  * New upstream version 0.0~git20240229.fcbf55a
+    + Please pin to this snapshot for PyTorch/2.3.X release.
+  * Refresh existing patches.
+  * Add new cmake flags to avoid cmake failure.
+  * Add version requirement to pthreadpool.
+  * Bump version requirement on B-D cpuinfo.
+  * Add a file in not-installed.
+  * Upload to experimental.
+
+ -- Mo Zhou <lumin@debian.org>  Thu, 11 Jul 2024 01:05:18 -0400
+
+xnnpack (0.0~git20221221.51a9875-1) unstable; urgency=medium
+
+  * New upstream version 0.0~git20221221.51a9875
+    + Please pin to this snapshot for the PyTorch/v2.0.X release.
+  * Rebase existing patches.
+  * rules: Specify -fPIC and shared library build to prevent link failure.
+
+ -- Mo Zhou <lumin@debian.org>  Fri, 18 Aug 2023 18:22:47 -0400
+
+xnnpack (0.0~git20220216.ae108ef-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Mo Zhou <lumin@debian.org>  Sat, 25 Jun 2022 20:11:28 -0700
+
+xnnpack (0.0~git20220216.ae108ef-1) experimental; urgency=medium
+
+  * New upstream version 0.0~git20220216.ae108ef
+    Please pin to this snapshot for PyTorch/v1.12.0~rc1
+  * Remove already merged patches.
+  * Rebase soversion.patch
+  * Resolve superfluous-file-pattern in d/copyright
+  * Put binary packages to correct Sections.
+  * Add changelog entry for the 0.0~git20201221.e1ffe15-2.1 NMU.
+    Many thanks to Adrian Bunk!
+  * Upload to experimental.
+
+ -- Mo Zhou <lumin@debian.org>  Sun, 22 May 2022 17:56:02 -0400
+
+xnnpack (0.0~git20201221.e1ffe15-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add upstream fix for FTBFS with gcc 11. (Closes: #997271)
+
+ -- Adrian Bunk <bunk@debian.org>  Tue, 28 Dec 2021 20:29:08 +0200
+
+xnnpack (0.0~git20201221.e1ffe15-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Mo Zhou <lumin@debian.org>  Thu, 02 Sep 2021 02:12:54 +0000
+
+xnnpack (0.0~git20201221.e1ffe15-1) experimental; urgency=medium
+
+  * New upstream version 0.0~git20201221.e1ffe15
+    Please pin to this snapshot for PyTorch/v1.8.1
+  * Remove 533.patch (merged upstream) and refresh remaining patches.
+  * Add PyTorch/v1.8.1 upstream patches.
+
+ -- Mo Zhou <lumin@debian.org>  Wed, 19 May 2021 13:02:03 +0800
+
+xnnpack (0.0~git20201031.beca652+really.git20200323.1b35463-2) unstable; urgency=medium
+
+  * Don't install unwanted header files.
+  * Revert "Remove 533.patch (merged upstream) and refresh the remaining ones."
+    We need this patch again due to the rollback.
+
+ -- Mo Zhou <lumin@debian.org>  Fri, 11 Dec 2020 13:50:30 +0800
+
+xnnpack (0.0~git20201031.beca652+really.git20200323.1b35463-1) unstable; urgency=medium
+
+  * Rollback to upstream snapshot 0.0~git20200323.1b35463
+  * Please pin to this snapshot for PyTorch 1.7.0
+  * Rebase existing patches.
+  * Stop tracking symbols, and update not-installed list.
+
+ -- Mo Zhou <lumin@debian.org>  Fri, 11 Dec 2020 12:33:46 +0800
+
+xnnpack (0.0~git20201031.beca652-1) unstable; urgency=medium
+
+  * New upstream snapshot 0.0~git20201031.beca652
+  * Change maintainer into Debian Deep Learning Team <debian-ai@l.d.o>.
+  * Refresh symbols list for amd64 architecture.
+
+ -- Mo Zhou <lumin@debian.org>  Mon, 02 Nov 2020 16:02:16 +0800
+
+xnnpack (0.0~git20200827.37297a6-1) unstable; urgency=medium
+
+  * New upstream version 0.0~git20200827.37297a6
+  * Remove 533.patch (merged upstream) and refresh the remaining ones.
+  * Refresh symbols control file.
+
+ -- Mo Zhou <lumin@debian.org>  Thu, 03 Sep 2020 10:37:10 +0800
+
+xnnpack (0.0~git20200425.54f5917-4) unstable; urgency=medium
+
+  * Strip and embedded clog and remove the corresponding patch.
+  * Bump debhelper compat level to 13.
+  * Remove README.Source, as the embedded clog has been removed.
+
+ -- Mo Zhou <lumin@debian.org>  Fri, 01 May 2020 14:11:14 +0800
+
+xnnpack (0.0~git20200425.54f5917-3) unstable; urgency=medium
+
+  * Make the symbols control file amd64-only.
+  * Override dh_dwz and allow it to fail on arm64.
+
+ -- Mo Zhou <lumin@debian.org>  Thu, 30 Apr 2020 11:42:31 +0800
+
+xnnpack (0.0~git20200425.54f5917-2) unstable; urgency=medium
+
+  * Fixup the clog patch (it was empty in the previous upload due to mistake)
+  * Apply wrap-and-srot.
+  * Create symbols control file for libXNNPACK.so
+  * List not-installed files.
+  * Upload to unstable.
+
+ -- Mo Zhou <lumin@debian.org>  Wed, 29 Apr 2020 09:27:23 +0800
+
+xnnpack (0.0~git20200425.54f5917-1) experimental; urgency=medium
+
+  * Initial release. (Closes: #958818)
+
+ -- Mo Zhou <lumin@debian.org>  Sun, 26 Apr 2020 15:04:57 +0800
