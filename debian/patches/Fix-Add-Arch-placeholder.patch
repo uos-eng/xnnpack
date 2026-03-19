@@ -1,0 +1,25 @@
+From a6808d53689333a1d25444380a6c11b4833dca23 Mon Sep 17 00:00:00 2001
+From: Chengyi Zhao <zhaochengyi@uniontech.com>
+Date: Thu, 19 Mar 2026 17:27:59 +0800
+Subject: [PATCH] fix: Add Arch placeholder
+
+---
+ src/xnnpack/hardware-config.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/xnnpack/hardware-config.h b/src/xnnpack/hardware-config.h
+index dee719c..0ff168e 100644
+--- a/src/xnnpack/hardware-config.h
++++ b/src/xnnpack/hardware-config.h
+@@ -76,6 +76,8 @@ enum xnn_arch_flags {
+ #if XNN_ARCH_HEXAGON
+   xnn_arch_hvx = 1 << 0,
+ #endif  // XNN_ARCH_HEXAGON
++  // Placeholder: ensure the enum is non-empty on any architecture.
++  xnn_arch_placeholder = 0
+ };
+ 
+ struct xnn_hardware_config {
+-- 
+2.20.1
+

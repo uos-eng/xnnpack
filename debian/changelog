@@ -1,3 +1,9 @@
+xnnpack (0.0~git20241108.4ea82e5-2deepin2) unstable; urgency=medium
+
+  * Add Arch placeholder
+
+ -- zhaochengyi <zhaochengyi@uniontech.com>  Thu, 19 Mar 2026 17:47:34 +0800
+
 xnnpack (0.0~git20241108.4ea82e5-2deepin1) unstable; urgency=medium
 
   * Add some Architecture

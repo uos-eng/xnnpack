@@ -1,2 +1,3 @@
 soversion.patch
 fix-aarch64-ftbfs-gcc13.patch
+Fix-Add-Arch-placeholder.patch
