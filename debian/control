@@ -22,7 +22,7 @@ Build-Depends: cmake,
 
 Package: libxnnpack-dev
 Section: libdevel
-Architecture: amd64 i386 x32 armhf arm64 riscv64
+Architecture: amd64 i386 x32 armhf arm64 riscv64 sw64 mips64el loong64
 Multi-Arch: same
 Depends: libxnnpack0.20241108 (= ${binary:Version}), ${misc:Depends}
 Description: High-efficiency floating-point neural network inference operators (dev)
@@ -37,7 +37,7 @@ Description: High-efficiency floating-point neural network inference operators (
 
 Package: libxnnpack0.20241108
 Section: libs
-Architecture: amd64 i386 x32 armhf arm64 riscv64
+Architecture: amd64 i386 x32 armhf arm64 riscv64 sw64 mips64el loong64
 Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: High-efficiency floating-point neural network inference operators (libs)
